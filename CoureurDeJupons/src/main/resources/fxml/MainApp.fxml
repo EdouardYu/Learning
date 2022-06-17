@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/MainApp.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edyu.courreurdejupons.MainController"
+>
+   <children>
+      <Label id="titleLabel" text="Courreur de  Jupons" />
+      <Label id="statusLabel" fx:id="statusLabel"/>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleAddGirlfriendButtonAction" text="J'AI UNE NOUVELLE COPINE" />
+            <Button mnemonicParsing="false" onAction="#handleRemoveGirlfirendButtonAction" text="J'AI  PERDU UNE COPINE" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

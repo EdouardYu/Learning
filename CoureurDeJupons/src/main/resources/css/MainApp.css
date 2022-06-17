@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+/* Equivalent du body */
+.root {
+     -fx-font-family: "Avenir Next";
+     -fx-background-color: #F0F4F8;
+     -fx-alignment: center;
+     -fx-padding: 25px;
+     -fx-spacing: 10px;
+}
+
+.label {
+     -fx-text-fill: #044E54;
+}
+
+#titleLabel {
+     -fx-font: bold 28px Pacifico;
+     -fx-padding: 0 0 40px 0;
+}
+
+#statusLabel {
+     -fx-font-size: 14px;
+}
+
+.button {
+     -fx-font-size: 16px;
+     -fx-background-color: #E66A6A;
+     -fx-background-radius: 5px;
+     -fx-text-fill: #fff;
+     -fx-padding: 8px;
+ }
+
+.button:hover {
+     /* Exemple de graphic par CSS : */
+     /*-fx-graphic: url("../images/coeur_hover.png");*/
+     -fx-cursor: hand;
+     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 3, 0, 0, 0);
+}
