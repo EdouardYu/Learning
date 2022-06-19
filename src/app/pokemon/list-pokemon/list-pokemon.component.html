@@ -18,7 +18,7 @@
                         <div class="card-content">
                             <p style="font-weight:bold;">{{ pokemon.name }}</p>
                             <p><small></small>{{ pokemon.created | date:"dd/MM/yyyy" }}</p> <!-- date est un pipe natif-->
-                            <span *ngFor="let type of pokemon.types" class=" {{ type | pokemonTypeColor}} " style="width: 75px; height: 30px; text-align: center; color: white; text-transform: uppercase; font-weight: bold; font-size: 10px;">
+                            <span *ngFor="let type of pokemon.types" class=" {{ type | pokemonTypeColor }} " style="width: 75px; height: 30px; text-align: center; color: white; text-transform: uppercase; font-weight: bold; font-size: 10px;">
                                 {{ type }}
                             </span>
                         </div>

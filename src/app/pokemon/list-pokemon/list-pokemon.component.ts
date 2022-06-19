@@ -8,7 +8,7 @@ import { PokemonService } from '../pokemon.service';
   templateUrl: './list-pokemon.component.html',
 
 })
-export class ListPokemonComponent implements OnInit{
+export class ListPokemonComponent implements OnInit {
   pokemonList: Pokemon[];
   //pokemonSelected: Pokemon|undefined;
 
