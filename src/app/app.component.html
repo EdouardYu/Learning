@@ -1,7 +1,13 @@
-<nav>
+<nav style="position: -webkit-sticky; position: sticky; top: 0; z-index: 1;">
     <div class="nav-wrapper teal">
-        <a href="#" class="brand-logo center">
+        <a  (click)="goToPokemonList()" class="brand-logo center" style="cursor: pointer">
             Pokédex
+        </a>
+        <a *ngIf="!auth.isLoggedIn;" (click)="goToLogin()" class="brand-logo right" style="padding-right: 25px; font-size: medium; cursor: pointer">
+            Se connecter
+        </a>
+        <a (click)="logout()" *ngIf="auth.isLoggedIn" class="brand-logo right" style="padding-right: 25px; font-size: medium; cursor: pointer">
+            Se déconnecter
         </a>
     </div>
 </nav>

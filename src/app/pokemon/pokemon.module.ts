@@ -9,10 +9,14 @@ import { PokemonService } from './pokemon.service';
 import { FormsModule } from '@angular/forms';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
+import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
+import { AuthGuard } from '../auth.guard';
 
 
 const pokemonRoutes: Routes = [
-  { path: 'edit/pokemon/:name', component: EditPokemonComponent },
+  { path: 'pokemon/:name/edit', component: EditPokemonComponent, canActivate: [AuthGuard] }, //canActivate est un boolean qui permet d'aller suur cette page ou non
+  { path: 'pokemon/add', component: AddPokemonComponent, canActivate: [AuthGuard] },
   { path: 'pokemons', component: ListPokemonComponent },
   { path: 'pokemon/:name', component: DetailPokemonComponent }, // :quelque-chose -> url en paramètre
 ];
@@ -24,7 +28,9 @@ const pokemonRoutes: Routes = [
     PokemonFormComponent,
     BorderCardDirective,
     PokemonTypeColorPipe,
-    EditPokemonComponent
+    EditPokemonComponent,
+    AddPokemonComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule, //pour les *ngIf et les *ngFor

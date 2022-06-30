@@ -1,4 +1,3 @@
-import { formatCurrency } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from '../pokemon';
@@ -12,11 +11,14 @@ import { PokemonService } from '../pokemon.service';
 export class PokemonFormComponent implements OnInit {
   @Input() pokemon: Pokemon; //Contrat avec l'interface pour avoir un pokémon
   types: string[];
+  isAddForm: boolean;
+  static id: any;
 
   constructor(private pokemonService: PokemonService, private router: Router) { }
 
   ngOnInit(): void {
     this.types = this.pokemonService.getPokemonTypeList();
+    this.isAddForm = this.router.url.includes('add');
   }
 
   hasType(type: string): boolean{
@@ -44,7 +46,10 @@ export class PokemonFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log('Vous avez modifié les propriétés du pokémon !')
-    this.router.navigate(['pokemon/', this.pokemon.name]);
-  }
+    if(this.isAddForm) {
+      this.pokemonService.addPokemon(this.pokemon).subscribe((pokemon: Pokemon) => this.router.navigate(['pokemon/', pokemon.name]));
+    } else {
+      this.pokemonService.updatePokemon(this.pokemon).subscribe(() => this.router.navigate(['pokemon/', this.pokemon.name]));
+    }
+  }  
 }

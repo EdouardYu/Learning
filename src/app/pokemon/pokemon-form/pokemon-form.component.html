@@ -8,18 +8,30 @@
           <div class="form-group">
             <label for="name">Nom</label>
             <input type="text" class="form-control" id="name"
-                    required
-                    pattern="^[A-ZÆŒ]{1}[a-zéàèùâêîôûäëïöüÿçæœ]{0,24}$"
-                   [(ngModel)]="pokemon.name" name="name"
-                   #name="ngModel">
-            <!--on instancie un ngModel en quelque sorte-->
-            
+                  required
+                  pattern="^[A-ZÆŒ]{1}[A-Za-z0-9éàèùâêîôûäëïöüÿçæœ.: -]{0,24}$"
+                  [(ngModel)]="pokemon.name" name="name"
+                  #name="ngModel">
+            <!--on instancie un ngModel en quelque sorte-->        
             <!-- message d'ereur si on ne saisit rien, sinon caché -->
             <div [hidden]="name.valid || name.pristine"
                   class="card-panel red accent-1">
-                  Le nom du pokémon est requis.
+                  Le nom du pokémon est requis (1-25).
             </div>
             <!--pristine veut dire que le nom est valide ou n'est jamais modifié-->
+          </div>
+
+          <!-- Pokemon picture -->
+          <div  *ngIf="isAddForm" class="form-group">
+            <label for="picture">Image</label>
+            <input type="url" class="form-control" id="picture"
+                    pattern="^https://assets.pokemon.com/assets/cms2/img/pokedex/detail/[0-9]{3}\.png$"
+                    [(ngModel)]="pokemon.picture" name="picture"
+                    #picture="ngModel">           
+            <div [hidden]="picture.valid || picture.pristine"
+                  class="card-panel red accent-1">
+                  L'image du pokémon est requis (001-901).
+            </div>
           </div>
     
           <!-- Pokemon hp -->
@@ -85,9 +97,7 @@
               <!-- Le bouton reste désactivé si le form n'est pas valide -->
               Valider</button>
           </div>
-    
         </div>
       </div>
     </div>
   </form>
-  <h3 *ngIf="!pokemon" class="center">Aucun pokémon à éditer...</h3>

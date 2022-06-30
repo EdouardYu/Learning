@@ -1,7 +1,7 @@
 import { Pokemon } from './pokemon';
   
 export const POKEMONS: Pokemon[] = [
-    {
+    {   
         id: 1,
         name: "Bulbizarre",
         hp: 25,
@@ -11,7 +11,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 2,
+        id: 4,
         name: "Salamèche",
         hp: 28,
         cp: 6,
@@ -20,7 +20,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 3,
+        id: 7,
         name: "Carapuce",
         hp: 21,
         cp: 4,
@@ -29,7 +29,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 4,
+        id: 13,
         name: "Aspicot",
         hp: 16,
         cp: 2,
@@ -38,7 +38,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 5,
+        id: 16,
         name: "Roucool",
         hp: 30,
         cp: 7,
@@ -47,7 +47,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 6,
+        id: 19,
         name: "Rattata",
         hp: 18,
         cp: 6,
@@ -56,7 +56,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 7,
+        id: 21,
         name: "Piafabec",
         hp: 14,
         cp: 5,
@@ -65,7 +65,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 8,
+        id: 23,
         name: "Abo",
         hp: 16,
         cp: 4,
@@ -74,7 +74,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 9,
+        id: 25,
         name: "Pikachu",
         hp: 21,
         cp: 7,
@@ -83,7 +83,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 10,
+        id: 27,
         name: "Sabelette",
         hp: 19,
         cp: 3,
@@ -92,7 +92,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 11,
+        id: 35,
         name: "Mélofée",
         hp: 25,
         cp: 5,
@@ -101,7 +101,7 @@ export const POKEMONS: Pokemon[] = [
         created: new Date()
     },
     {
-        id: 12,
+        id: 37,
         name: "Groupix",
         hp: 17,
         cp: 8,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged, Observable, Subject, switchMap } from 'rxjs';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
 
@@ -11,10 +12,26 @@ import { PokemonService } from '../pokemon.service';
 export class ListPokemonComponent implements OnInit {
   pokemonList: Pokemon[];
   //pokemonSelected: Pokemon|undefined;
+    // Recherche de flux dans le temps et permet de piloter les observables :
+  searchTerms = new Subject<string>(); //Subject appartient à RxJS
+  pokemons$: Observable<Pokemon[]>;
+  noTerm: boolean = true;
 
   ngOnInit(): void {
-    this.pokemonList = this.pokemonService.getPokemonList();
+    this.pokemonService.getPokemonList().subscribe(pokemonList => this.pokemonList = pokemonList); //on récupère pokemonList et on la pousse dans this.pokemonList
+    //this.pokemonList = this.pokemonService.getPokemonList();
     console.table(this.pokemonList);
+    this.pokemons$ = this.searchTerms.pipe(
+      debounceTime(300), // (RxJS) On attend 300 ms avant d'envoyer une requête au serveur pour consommer moins de ressources
+      distinctUntilChanged(), //(RxJS) On s'assure que les requêtes successives ne sont pas identiques avant d'envoyer une requête
+      //map((term) => this.pokemonService.searchPokemonList(term)), Renvoie un observable 
+      //Si on veut pas l'observable mais juste l'objet à l'intérieur :
+      //concatMap ou mergeMap ou switchMap
+      //Si la requête précédente n'est pas terminé mais qu'on a fondamentalement pas besoin
+      //et qu'on veut seulement la requête la plus récente, on peut utiliser switchMap
+      switchMap((term) => this.pokemonService.searchPokemonList(term)
+      )
+    );
   }
  /*
   Méthodes recherche avec une barre de recherche :
@@ -44,5 +61,14 @@ export class ListPokemonComponent implements OnInit {
 
   goToPokemon(pokemon: Pokemon) {
     this.router.navigate(['pokemon/', pokemon.name]);
+  }
+
+  search(term: string) {
+    this.searchTerms.next(term);
+    if(term) {
+      this.noTerm = false;
+    } else {
+      this.noTerm = true;
+    }
   }
 }
