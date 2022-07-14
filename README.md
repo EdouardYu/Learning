@@ -1,6 +1,6 @@
 Url de l'application :  https://pokedex-5dbfb.web.app
 Pour faire des modifications :
-User : Edouard
+User : EdouardY
 Pwd : Azerty
 
 Projet Angular : Pokémons
