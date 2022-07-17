@@ -4,9 +4,7 @@ const express = require('express'); //créer la dépendance du fichier au fichie
 const favicon = require('serve-favicon');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const Pokemons = require('./src/db/mongoose');
-const { success } = require('./src/helper'); // quand on veut récupérer qu'une méthode de la classe en question
-let pokemons = require('./src/db/mock-pokemon');
+require('./src/db/mongoose');
 
 const app = express(); // créer une instance de l'application express, c'est un serveur web
 const port = 3000;
@@ -80,6 +78,12 @@ app.delete('/api/pokemon/:id', (req, res) => {
 */
 
 require('./src/routes/deletePokemon')(app);
+
+//Page error 404 :
+app.use(({res}) => {
+    const message = 'Erreur 404 : Impossible de trouver la ressource demandée ! Vous pouvez essayer une auutre URL';
+    res.status(404).json({message});
+});
 
 app.listen(port, () => console.log(`L'application Node est démarrée sur : http://localhost:${port}`));//au démarrage de l'application
 // On ne peut pas rafréchir la page si on ajoute uun élément, il faut couper et redémarrer l'application

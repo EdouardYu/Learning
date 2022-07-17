@@ -4,14 +4,17 @@ const { success } = require('../helper');
 module.exports = (app) => {
   app.get('/api/pokemon/:name', (req, res) => {
     const name = req.params.name;
+    let message = '';
     Pokemon.findOne({name: name}).then(pokemon => {
-        let message = '';
-        if(pokemon){
-            message = 'Un pokémon a bien été trouvé';
-        } else {
-            message = 'Ce pokémon n\'existe pas';
+        if(!pokemon) {
+            message = 'Erreur 404 : Ce pokémon n\'est pas encore répertorié. Vous pouvez l\'ajouter dans le pokédex';
+            return res.status(404).json({message});
         }
+        message = 'Un pokémon a bien été trouvé';
         res.json(success(message, pokemon));
+      }).catch(() => {
+        message = 'Erreur 500 : Aucun pokémon n\'a pu être récupérée. Réessayez plus tard';
+        res.status(500).json({message});
       });
   });
 }
