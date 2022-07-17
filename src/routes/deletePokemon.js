@@ -11,7 +11,7 @@ module.exports = (app) => {
                 return res.status(404).json({message});
             }
             Pokemon.findByIdAndDelete(id).then(pkm => {
-                message = `Le pokémon ${pkm.name} a bien été supprimé de la collection`;
+                message = `Le pokémon ${pkm.name} a bien été supprimé du pokédex`;
                 res.json(success(message, pkm));
             }).catch(() => {
                 message = 'Erreur 500 : Vous ne pouvez pas supprimer de pokémon pour l\'instant. Réessayez plus tard';
