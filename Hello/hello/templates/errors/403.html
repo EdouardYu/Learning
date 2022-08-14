@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <h2 class="text-center">Erreur 403 : Il semblerait que vous n'ayez pas les permissions requises pour aller sur cette page</h2>
+        <p class="text-center my-4">Veuillez vérifier que vous êtes connecté sur le bon compte et réessayer</p>
+        <p class="text-center">
+            <a href="{{ url_for('main.index') }}" class="btn btn-outline-info w-75">Retourner sur la page d'accueil</a>
+        </p>
+    </div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <h2 class="text-center">Erreur 404 : Il semblerait que cette page n'existe pas</h2>
+        <p class="text-center my-4">Veuillez essayer un autre lien URL</p>
+        <p class="text-center">
+            <a href="{{ url_for('main.index') }}" class="btn btn-outline-info w-75">Retourner sur la page d'accueil</a>
+        </p>
+        </div> 
+{% endblock content %}
