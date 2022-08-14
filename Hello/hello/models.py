@@ -1,4 +1,5 @@
-from hello import db, login_manager, app
+from flask import current_app
+from hello import db, login_manager
 from flask_login import UserMixin
 from datetime import datetime, timezone, timedelta
 from jwt import encode, decode
@@ -27,7 +28,7 @@ class User(db.Model, UserMixin):
                 "exp": datetime.now(tz = timezone.utc).astimezone(tz = None)
                         + timedelta( seconds = expiration_sec)
             },
-            app.config['SECRET_KEY'],
+            current_app.config['SECRET_KEY'],
             algorithm = "HS256"
         )
         return reset_token
@@ -37,7 +38,7 @@ class User(db.Model, UserMixin):
         try:
             user_id = decode(
                 token,
-                app.config['SECRET_KEY'],
+                current_app.config['SECRET_KEY'],
                 leeway = timedelta(seconds = 10),
                 algorithms = ["HS256"]
             )['user_id'] # Pour ne prendre que l'user_id de l'information encodé

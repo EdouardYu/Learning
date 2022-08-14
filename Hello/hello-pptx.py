@@ -1,6 +1,5 @@
 from hello.pptx_function import *
 from numpy import array
-import collections.abc
 from pptx import Presentation
 
 def hello():

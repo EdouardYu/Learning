@@ -1,5 +1,4 @@
 from numpy import zeros, ones, array
-import collections.abc
 from pptx import Presentation
 from pptx.util import Inches
 from pptx.chart.data import CategoryChartData

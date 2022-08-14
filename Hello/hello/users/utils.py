@@ -1,8 +1,8 @@
 import os
 import secrets
 from PIL import Image
-from hello import app, mail
-from flask import url_for
+from hello import mail
+from flask import url_for, current_app
 from flask_mail import Message
 
 def de(name):
@@ -20,7 +20,7 @@ def save_picture(form_picture, current_user_picture):
     # la ligne permet de séparer le nom du fichier avec l'extension du fichier
     # pour jeter une variable, en python on l'enregistre sur l'underscore _
     picture_filename = random_hex + file_extension 
-    picture_path = os.path.join(app.root_path, 'static/images', picture_filename)
+    picture_path = os.path.join(current_app.root_path, 'static/images', picture_filename)
     # permet d'enregistrer le fichier dans le dossier static/images à partir de la racine
     # (voir ligne plus bas avec save)
     profile_picture = Image.open(form_picture)
@@ -34,7 +34,7 @@ def save_picture(form_picture, current_user_picture):
     profile_picture.thumbnail(output_size)
     profile_picture.save(picture_path)
     # on supprime l'ancien photo de profil si possible:
-    current_user_picture_path = os.path.join(app.root_path, 'static/images', current_user_picture)
+    current_user_picture_path = os.path.join(current_app.root_path, 'static/images', current_user_picture)
     if current_user_picture != "python.png" and os.path.exists(current_user_picture_path):
         os.remove(current_user_picture_path)
     return picture_filename
@@ -45,7 +45,7 @@ def send_reset_email(user):
             sender = "noreply.hello.flask@gmail.com", recipients = [user.email])
     message.body = f'''Pour réinitialiser votre mot de passe, veuillez cliqué sur le lien ci-dessous :
 
-{ url_for('reset_token', token = token, _external = True) } 
+{ url_for('users.reset_token', token = token, _external = True) } 
 
 Ce lien est valide pendant 30 minutes après reception de l'e-mail
 Si vous n'êtes pas à l'origine de la demande, veuillez ignorer cet e-mail

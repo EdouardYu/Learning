@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, EmailField, PasswordField, SubmitField, BooleanField, TextAreaField
+from wtforms import StringField, EmailField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import InputRequired, Length, Email, EqualTo, ValidationError
 from hello.models import User
 
@@ -119,11 +119,6 @@ class UpdateAccountForm(FlaskForm):
                         validators = [FileAllowed(upload_set = allowed_format,
                         message = "Seuls les fichiers avec les extensions : {} sont autorisés".format(", ".join(allowed_format)))])
     submit = SubmitField(label = "Modifier")
-
-class PostForm(FlaskForm):
-    title = StringField(label = "Titre", validators = [InputRequired(message = "Veuillez mettre un titre")])
-    content = TextAreaField(label = "Contenu", validators = [InputRequired(message = "Veuillez mettre votre message")])
-
     
 class RequestResetForm(FlaskForm):
     email = EmailField(label = "E-mail",
