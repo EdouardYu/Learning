@@ -12,8 +12,6 @@ pip install Pillow==9.2.0
 pip install python-pptx==2.4.0  
 pip install numpy==1.23.1  
 
-#### Ou l'executer depuis l'environnement virtuel venv  
-
 # Exécution le programme :  
 
 python run.py
