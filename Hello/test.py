@@ -1,4 +1,10 @@
-from os import environ
+import asyncio
 
-print(environ.get('EMAIL_USER'))
-print(environ.get('EMAIL_PASSWORD'))
+async def foo():
+    return 'Hello!'
+
+async def baz():
+    s = await foo()
+    return s
+
+asyncio.run(print(baz()))

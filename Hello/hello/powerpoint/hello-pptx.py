@@ -1,4 +1,4 @@
-from hello.pptx_function import *
+from pptx_function import *
 from numpy import array
 from pptx import Presentation
 

@@ -63,7 +63,7 @@ def summary_slide(presentation, title = '', bullet_points = [], levels = None):
                 bullet_point.level = levels[i]
 
 
-def picture_slide(presentation, title = '', image='hello/static/images/python.png', left = 3, top = 2):
+def picture_slide(presentation, title = '', image='../static/images/python.png', left = 3, top = 2):
     try:
         error = None
         if not type(presentation) is type(Presentation()):

@@ -25,10 +25,12 @@ def create_app(config_class = Config):
     from hello.main.routes import main
     from hello.users.routes import users
     from hello.posts.routes import posts
+    from hello.powerpoint.routes import powerpoints
     from hello.errors.handlers import errors
     app.register_blueprint(main)
     app.register_blueprint(users)
     app.register_blueprint(posts)
+    app.register_blueprint(powerpoints)
     app.register_blueprint(errors)
 
     return app

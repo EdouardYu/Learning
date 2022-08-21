@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            <div class="form-group my-4 button">
+               <a class="btn btn-outline-info w-75" href="{{ url_for('powerpoints.download_powerpoint') }}">Télécharger le PowerPoint</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
