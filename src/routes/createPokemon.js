@@ -9,7 +9,10 @@ module.exports = (app) => {
             .then(pokemon => {
                 const message = `Le pokémon ${req.body.name} a bien été ajouté`;
                 res.json(success(message, pokemon));
-            }).catch(() => {
+            }).catch(error => {
+                if (error.name === 'ValidationError'){
+                    return res.status(400).json(success(`Erreur 400 : ${error.message}`, error))
+                };
                 message = 'Erreur 500 : Vous ne pouvez pas ajouter de nouveau pokémon pour l\'instant. Réessayez plus tard';
                 res.status(500).json({message});
             });

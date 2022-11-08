@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 //const pokemons = require('./mock-pokemon');
-const Pokemon = require('../models/model-pokemon');
+//const Pokemon = require('../models/model-pokemon');
 
 let user = "EdouardY";
-let pwd = "Azerty";
-let dbName = "pokedex";
+let pwd = "Pokemon";
+let dbName = "Pokedex";
 
 mongoose.connect(
-    `mongodb+srv://${user}:${pwd}@pokedex.teywrbz.mongodb.net/${dbName}?retryWrites=true&w=majority`
+    `mongodb+srv://${user}:${pwd}@pokedex.0x0ypzs.mongodb.net/${dbName}?retryWrites=true&w=majority`
 ).then(() => console.log(`Connexion à la base de données : ${dbName} avec succès`)
 ).catch(error => console.log(error));
 
