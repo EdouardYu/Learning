@@ -54,7 +54,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"Chenipan\",\n\t\"hp\": 29,\n\t\"cp\": 4,\n\t\"picture\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/010.png\",\n\t\"types\": [\n\t\t\"Insecte\",\n\t\t\"Poison\"\n\t]\n}",
+					"raw": "{\n\t\"name\": \"Chenipan\",\n\t\"hp\": 29,\n\t\"cp\": 4,\n\t\"picture\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/010.png\",\n\t\"types\": [\n\t    \"Insecte\",\n\t\t\"Poison\"\n\t]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\n  \"name\": \"Bulbizarre\",\n  \"hp\": 30,\n  \"cp\": 5,\n  \"picture\": \t\t\"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png\",\n  \"types\": [\n\t\t\"Plante\",\n\t\t\"Poison\"\n\t]\n }",
+					"raw": "{\n\t\"name\": \"Chenipan\",\n\t\"hp\": 30,\n\t\"cp\": 5,\n\t\"picture\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/010.png\",\n\t\"types\": [\n\t\t\"Insecte\",\n\t\t\"Poison\"\n\t]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,7 +91,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/pokemon/1",
+					"raw": "http://localhost:3000/api/pokemon/13",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,7 +100,7 @@
 					"path": [
 						"api",
 						"pokemon",
-						"1"
+						"13"
 					]
 				}
 			},
@@ -112,7 +112,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/pokemon/1",
+					"raw": "http://localhost:3000/api/pokemon/13",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -121,7 +121,7 @@
 					"path": [
 						"api",
 						"pokemon",
-						"1"
+						"13"
 					]
 				}
 			},
