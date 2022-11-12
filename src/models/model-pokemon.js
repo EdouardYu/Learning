@@ -9,6 +9,7 @@ const pokemon = mongoose.Schema({
       },
     name: {
         type: String,
+        unique: true,
         required: [true, 'Veuillez renseigner le nom du pokémon.'],
         match: [/^([A-ZÆŒ]{1})([A-Za-z0-9éàèùâêîôûäëïöüÿçæœ.: -]{0,24})$/, 
               'Le nom du pokémon doit commencer par une lettre en Majuscule et contenir entre 1 et 25 caractères.']
@@ -29,6 +30,7 @@ const pokemon = mongoose.Schema({
       },
       picture: {
         type: String,
+        unique: true,
         required: [true, 'Veuillez mettre une image de pokémon.'],
         match: [/^(https:\/\/assets\.pokemon\.com\/assets\/cms2\/img\/pokedex\/detail\/)([0-9]{3})(\.png)$/,
               'Veuillez renseigner une URL valide']

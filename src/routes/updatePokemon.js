@@ -22,6 +22,10 @@ module.exports = (app) => {
                 if (error.name === 'ValidationError'){
                     return res.status(400).json(success(`Erreur 400 : ${error.message}`, error))
                 };
+                if (error.name === 'MongoServerError'){
+                    message = 'Ce pokémon a déjà été enregistré dans le pokédex, veuillez renseigner un autre pokémon [nom (et / ou) image du pokémon déjà pris(ent)].'
+                    return res.status(400).json({message});
+                };
                 message = 'Erreur 500 : Vous ne pouvez pas modifier de pokémon pour l\'instant. Réessayez plus tard';
                 res.status(500).json({message});
             });
