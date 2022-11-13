@@ -7,12 +7,12 @@
 	},
 	"item": [
 		{
-			"name": "GET /pokemons",
+			"name": "GET /pokemons?name=&limit=",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/pokemons",
+					"raw": "http://localhost:3000/api/pokemons?name=",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -21,6 +21,12 @@
 					"path": [
 						"api",
 						"pokemons"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": ""
+						}
 					]
 				}
 			},

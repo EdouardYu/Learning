@@ -7,14 +7,14 @@ module.exports = (app) => {
     let message = '';
     Pokemon.findOne({name: name}).then(pokemon => {
         if(!pokemon) {
-            message = 'Erreur 404 : Ce pokémon n\'est pas encore répertorié. Vous pouvez l\'ajouter dans le pokédex';
+            message = 'Erreur 404 : Ce pokémon n\'est pas encore répertorié. Vous pouvez l\'ajouter dans le pokédex.';
             return res.status(404).json({message});
         }
-        message = 'Un pokémon a bien été trouvé';
-        res.json(success(message, pokemon));
+        message = 'Un pokémon a bien été trouvé.';
+        return res.json(success(message, pokemon));
       }).catch(() => {
-        message = 'Erreur 500 : Aucun pokémon n\'a pu être récupérée. Réessayez plus tard';
-        res.status(500).json({message});
+        message = 'Erreur 500 : Aucun pokémon n\'a pu être récupérée. Réessayez plus tard.';
+        return res.status(500).json({message});
       });
   });
 }
