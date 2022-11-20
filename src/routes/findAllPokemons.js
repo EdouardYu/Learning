@@ -1,8 +1,9 @@
 const Pokemon = require('../models/model-pokemon');
 const { success, pluralize } = require('../helper');
+const auth = require('../auth/auth');
   
 module.exports = (app) => {
-  app.get('/api/pokemons', (req, res) => {
+  app.get('/api/pokemons', auth, (req, res) => {
     let message = '';
     if(req.query.name) {
       const name = req.query.name;

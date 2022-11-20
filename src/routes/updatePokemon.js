@@ -1,8 +1,9 @@
 const Pokemon = require('../models/model-pokemon');
 const { success } = require('../helper');
+const auth = require('../auth/auth');
   
 module.exports = (app) => {
-    app.put('/api/pokemon/:id', (req, res) => {
+    app.put('/api/pokemon/:id', auth, (req, res) => {
         const id = parseInt(req.params.id);
         let message = '';
         Pokemon.findById(id).then(pokemon => { 

@@ -10,9 +10,15 @@
 			"name": "GET /pokemons?name=&limit=",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2Njg5MDE4NDUsImV4cCI6MTY2ODk4ODI0NX0.AskkgsELO4uDgJ7l10yA6NPOLuIov40hxVAorNP67GE",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:3000/api/pokemons?name=",
+					"raw": "http://localhost:3000/api/pokemons?name=&limit=",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -26,6 +32,10 @@
 						{
 							"key": "name",
 							"value": ""
+						},
+						{
+							"key": "limit",
+							"value": ""
 						}
 					]
 				}
@@ -36,7 +46,13 @@
 			"name": "GET /pokemon/:name",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2Njg5MDE4NDUsImV4cCI6MTY2ODk4ODI0NX0.AskkgsELO4uDgJ7l10yA6NPOLuIov40hxVAorNP67GE",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/api/pokemon/Bulbizarre",
 					"protocol": "http",
@@ -57,7 +73,13 @@
 			"name": "POST /pokemons",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2Njg5MDE4NDUsImV4cCI6MTY2ODk4ODI0NX0.AskkgsELO4uDgJ7l10yA6NPOLuIov40hxVAorNP67GE",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"Chenipan\",\n\t\"hp\": 29,\n\t\"cp\": 4,\n\t\"picture\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/010.png\",\n\t\"types\": [\n\t    \"Insecte\",\n\t\t\"Poison\"\n\t]\n}",
@@ -86,7 +108,13 @@
 			"name": "PUT /pokemon/:id",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2Njg5MDE4NDUsImV4cCI6MTY2ODk4ODI0NX0.AskkgsELO4uDgJ7l10yA6NPOLuIov40hxVAorNP67GE",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\": \"Chenipan\",\n\t\"hp\": 30,\n\t\"cp\": 5,\n\t\"picture\": \"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/010.png\",\n\t\"types\": [\n\t\t\"Insecte\",\n\t\t\"Poison\"\n\t]\n}",
@@ -116,7 +144,13 @@
 			"name": "DELETE /pokemon/:id",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2Njg5MDE4NDUsImV4cCI6MTY2ODk4ODI0NX0.AskkgsELO4uDgJ7l10yA6NPOLuIov40hxVAorNP67GE",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:3000/api/pokemon/13",
 					"protocol": "http",
@@ -128,6 +162,42 @@
 						"api",
 						"pokemon",
 						"13"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\": \"EdouardY\",\r\n    \"password\": \"Pokemon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
 					]
 				}
 			},

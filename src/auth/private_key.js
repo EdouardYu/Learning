@@ -1,0 +1,1 @@
+module.exports = 'POKEDEX_PRIVATE_KEY'

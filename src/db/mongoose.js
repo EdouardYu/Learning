@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 //const pokemons = require('./mock-pokemon');
 //const Pokemon = require('../models/model-pokemon');
+//const User = require('../models/model-user')
+//const bcrypt = require('bcrypt')
 
 let user = "EdouardY";
 let pwd = "Pokemon";
@@ -11,7 +13,7 @@ mongoose.connect(
 ).then(() => console.log(`Connexion à la base de données : ${dbName} avec succès`)
 ).catch(error => console.log(error));
 
-//Pour créer la base des 12 pokémons sur la basse de données (à utiliser que si la collection n'existe pas):
+//Pour créer les tables des 12 pokémons et d'un utilisateur sur la basse de données (à utiliser que si la collection n'existe pas):
 /*
 pokemons.map(pokemon => {
   pokemon = Pokemon.create({
@@ -21,6 +23,14 @@ pokemons.map(pokemon => {
     cp: pokemon.cp,
     picture: pokemon.picture,
     types: pokemon.types
+  });
+});
+
+bcrypt.hash('Pokemon', 10).then(hash => {
+  user = User.create({
+    _id: 1,
+    username: 'EdouardY',
+    password: hash
   });
 });
 */
