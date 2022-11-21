@@ -2,12 +2,11 @@ console.log('Hello World!');
 
 const express = require('express'); //créer la dépendance du fichier au fichier express
 const favicon = require('serve-favicon');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 require('./src/db/mongoose');
 
 const app = express(); // créer une instance de l'application express, c'est un serveur web
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 //On renvoie le middleware d'application de l'URL dans le terminal :
 /*
@@ -17,7 +16,7 @@ app.use((req, res, next) => {
 });
 */
 //Ou
-app.use(favicon(__dirname + '/pokeball.ico')).use(morgan('dev')).use(bodyParser.json());
+app.use(favicon(__dirname + '/pokeball.ico')).use(bodyParser.json());
 
 app.get('/', (req, res) => res.send('Hello World!')); // coeur de express : '/' est la route par défaut vers l'application 
 // et la suite donne la réponse qu'on souhaite, l'argument req permet de récuper un objet request et correspond à la requête reçu en entrée, et res est la reponse  
