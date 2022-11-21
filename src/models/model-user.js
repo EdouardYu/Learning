@@ -11,11 +11,16 @@ const user = mongoose.Schema({
         type: String,
         unique: true,
         required: [true, 'Veuillez vous identifier.'],
+        minLength: [2, 'Le pseudo doit contenir entre 2 et 20 caractères.'],
+        maxLength: [20, 'Le pseudo doit contenir entre 2 et 20 caractères.']
     },
     password: {
         type: String,
         required: [true, 'Veuillez renseigner votre mot de passe.'],
+        match: [/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[&#-_^@°+€$£¤%µ*,?;.:!§])([&#-^@°+€$£¤%µ*,?;.:!§\w]{8,15})$/, 
+            ```Le mot de passe doit contenir entre 8 et 25 caractères et doit posséder au moins une Majuscule,
+            une minuscule, un chiffre et un caractère spécial : & # - _ ^ @ ° + € $ £ ¤ % µ * , ? ; . : ! §```]
     },
 }, { versionKey: false });
 
-module.exports = mongoose.model('User', user);
+module.exports = mongoose.model('User', user)

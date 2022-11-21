@@ -11,7 +11,7 @@ const pokemon = mongoose.Schema({
         type: String,
         unique: true,
         required: [true, 'Veuillez renseigner le nom du pokémon.'],
-        match: [/^([A-ZÆŒ]{1})([A-Za-z0-9éàèùâêîôûäëïöüÿçæœ.: -]{0,24})$/, 
+        match: [/^([A-ZÆŒ]{1})([A-ZÆŒa-z0-9éàèùâêîôûäëïöüÿçæœ.: -]{0,24})$/, 
               'Le nom du pokémon doit commencer par une lettre en Majuscule et contenir entre 1 et 25 caractères.']
       },
       hp: {
@@ -33,19 +33,19 @@ const pokemon = mongoose.Schema({
         unique: true,
         required: [true, 'Veuillez mettre une image de pokémon.'],
         match: [/^(https:\/\/assets\.pokemon\.com\/assets\/cms2\/img\/pokedex\/detail\/)([0-9]{3})(\.png)$/,
-              'Veuillez renseigner une URL valide']
+              'Veuillez renseigner une URL valide.']
       },
       types: {
         type: [{
                 type: String,
                 require: true
               }],
-        required: [true, 'Le pokémon doit posséder un au moins un type et au maximum deux types'],
+        required: [true, 'Le pokémon doit posséder un au moins un type et au maximum deux types.'],
         enum: {
           values: ['Normal', 'Feu', 'Eau', 'Plante', 'Electrik', 'Glace', 'Combat', 'Poison', 'Sol', 'Vol', 'Psy', 'Insecte', 'Roche', 'Spectre', 'Dragon', 'Fée'],
           message: '{VALUE} n\'est pas un type de pokémon'
         },
-        validate: [pokemonTypes, 'Le pokémon doit posséder un au moins un type et au maximum deux types']
+        validate: [pokemonTypes, 'Le pokémon doit posséder un au moins un type et au maximum deux types.']
       },
       created: {
         type: Date,
