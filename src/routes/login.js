@@ -5,7 +5,7 @@ const privateKey = require('../auth/private_key');
 
 module.exports = (app) => {
     app.post('/api/login', (req, res) => {
-        User.findOne({username: req.body.username}).then(user => {
+        User.findOne({username: req.body.username}, { runValidators: true }).then(user => {
             let message = '';
             if(!user) {
                 message = `L\'identifiant (et / ou) le mot de passe (sont / est) inccorect(s).`;
@@ -24,7 +24,7 @@ module.exports = (app) => {
                 );
                 message = `Vous avez été connecté avec succès.`;
                 return res.json({message, data: user, token});
-            }).catch(() => {
+            }).catch(()=> {
                 message = 'Erreur 500 : Vous n\'avez pas pu être connecté. Réessayez plus tard.';
                 return res.status(500).json({message});
             });

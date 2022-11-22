@@ -16,10 +16,7 @@ const user = mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'Veuillez renseigner votre mot de passe.'],
-        match: [/^(?=.*[A-ZÆŒ])(?=.*[a-zéàèùâêîôûäëïöüÿçæœ])(?=.*\d)(?=.*[ &#-_^@°+€$£¤%µ*,?;.:!§])([&#-|^@°+€$£¤%µ*,?;.:!§ÆŒéàèùâêîôûäëïöüÿçæœ\w]{8,15})$/, 
-            ```Le mot de passe doit contenir entre 8 et 25 caractères et doit posséder au moins une Majuscule,
-            une minuscule, un chiffre et un caractère spécial entre : & # - | _ ^ @ ° + € $ £ ¤ % µ * , ? ; . : ! §.```]
+        required: [true, 'Veuillez renseigner votre mot de passe.']
     },
 }, { versionKey: false });
 
