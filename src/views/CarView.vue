@@ -9,10 +9,10 @@ Il est est utilisé pour finaliser le rendu DOM pour la première fois.
 */
 import cars from '../data.json';
 
-let car = ref(null);
-let route = useRoute();
-//let router = useRouter();
-let { id } = route.params;
+const car = ref(null);
+const route = useRoute();
+//const router = useRouter();
+const { id } = route.params;
 
 onBeforeMount(() => {
     car.value = cars.find(c => c.id === parseInt(id));
