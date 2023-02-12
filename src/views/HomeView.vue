@@ -17,13 +17,13 @@ import { useRouter, useRoute } from 'vue-router';
 // La "route" est l'URL du composant actuelle.
 // Le "router" permet de mettre en place un système de navigation basé sur les URLs de ../router/index.js.
 
-let router = useRouter();
-let route = useRoute();
-let cars = ref(carsData);
-let make = ref("Tous");
-let makes = [...new Set(carsData.map((c => c.make)))].sort();
+const router = useRouter();
+const route = useRoute();
+const cars = ref(carsData);
+const make = ref("Tous");
+const makes = [...new Set(carsData.map((c => c.make)))].sort();
 // Cette fonction permet de prendre les valeurs distinctes de la propiété make des objets json de carsData.
-let handleChange = () => {
+const handleChange = () => {
   router.push({query: {make: make.value}});
 };
 // Cette fonction permet d'ajouter un query params à la "route" actuelle.

@@ -6,7 +6,7 @@ import NotFoundView from "../views/NotFoundView.vue";
 import DealerView from "../views/DealerView.vue";
 import ManufactorerView from "../views/ManufactorerView.vue";
 
-let router = createRouter({ //Permet de créer les routes de l'application.
+const router = createRouter({ //Permet de créer les routes de l'application.
     history: createWebHistory(import.meta.env.BASE_URL),
     /*
     Un historique utilise l'URL pour simuler un URL complet 
