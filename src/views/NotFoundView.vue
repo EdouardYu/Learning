@@ -4,13 +4,9 @@ import { RouterLink } from 'vue-router'
 
 <template>
     <div class="container">
-        <h1>
-            404 - Cette page n'existe pas
-        </h1>
+        <h1>404 - Cette page n'existe pas</h1>
         <RouterLink to="/">
-            <button>
-                Revenir à la page d'accueil
-            </button>
+            <button>Revenir à la page d'accueil</button>
         </RouterLink>
     </div>
 </template>
