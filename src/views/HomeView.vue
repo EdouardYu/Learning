@@ -6,7 +6,9 @@ L'attribut "ref" remplace dans Vue, le getElementById qui est déconseillé car 
 Il permet de référencer un élément ou un élément enfant du DOM dans l'instance Vue de manière plus efficace.
 On pourra sélectionner l'élément DOM; c'est un attribut en lecture seule et renvoie un objet.
 Elle permet également de garder l'état de la variable comme une instance et ainsi pouvoir manipuler la variable.
-Ex : const count = 0; on pourra faire un count++; sans le "ref" c'est imposible.
+Ex : const count = 0; on pourra faire un count.value++; sans le "ref" c'est imposible.
+Dans un "ref", pour accéder à la valeur, il faut appelé sa propriété value; 
+mais dans le template cela est inutile car il l'appelle automatiquement.
 */
 //"watch" permet de déclencher une fonction chaque fois qu'une propriété réactive change.
 /*

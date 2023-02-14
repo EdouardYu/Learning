@@ -1,4 +1,4 @@
-<!-- L'attribut "setups" permet au script de s'exécuter à chaque fois qu'une instance du composant est créée. -->
+<!-- Composition API : L'attribut "setups" permet au script de s'exécuter à chaque fois qu'une instance du composant est créée. -->
 <script setup>
 import { RouterView, RouterLink } from "vue-router"
 /*
@@ -10,6 +10,26 @@ RouterView permet de remplacer les balises <a href=""></a> dans une application 
 Cela évite de recharger la page quand on click sur un lien.
 */
 </script>
+
+<!-- Options API : équivalent du composition API : "setup" -->
+<!--
+<script>
+export default {
+  name: 'App',
+  props: {
+    ...
+  },
+  data: function(){
+    return {
+      ...
+    }
+  },
+  methods: {
+    ...
+  }
+}
+</script>
+-->
 
 <template>
   <main>
