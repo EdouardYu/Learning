@@ -37,8 +37,9 @@ export default {
       <!-- l'active-class est appelé que quand la balise est active. -->
       <RouterLink active-class="active" to="/">Page d'accueil</RouterLink>
       <RouterLink active-class="active" to="/about">A propos</RouterLink>
+      <RouterLink active-class="active" to="/notes">Notes</RouterLink>
     </div>
-    <RouterView/>
+    <RouterView />
   </main>
 </template>
 

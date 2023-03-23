@@ -10,13 +10,13 @@ const count = ref(0);
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             In sapiente iure quisquam natus itaque delectus quibusdam sit
-            voluptatem consequuntur fugiat animi asperiores omnis, 
+            voluptatem consequuntur fugiat animi asperiores omnis,
             quos accusantium quia totam quae. Obcaecati, dolorem.
         </p>
         <div>
             <h3>Le décompte actuel est ...</h3>
             <h1>{{ count }}</h1>
-            <button  @click="count--">-</button>
+            <button @click="count--">-</button>
             <button @click="count++">+</button>
         </div>
     </main>
@@ -28,8 +28,6 @@ p {
 }
 
 main {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

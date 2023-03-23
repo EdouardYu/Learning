@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
+import NotesView from "../views/NotesView.vue";
 import CarView from "../views/CarView.vue";
 import NotFoundView from "../views/NotFoundView.vue";
 import DealerView from "../views/DealerView.vue";
@@ -27,6 +28,11 @@ const router = createRouter({ //Permet de créer les routes de l'application.
             path: "/about",
             name: "about",
             component: AboutView
+        },
+        {
+            path: "/notes",
+            name: "notes",
+            component: NotesView
         },
         {
             path: "/car/:id",
