@@ -28,12 +28,12 @@ const make = ref("Tous");
 const makes = [...new Set(carsData.map((c => c.make)))].sort();
 // Cette fonction permet de prendre les valeurs distinctes de la propiété make des objets json de carsData.
 const handleChange = () => {
-  router.push({query: {make: make.value}});
+  router.push({ query: { make: make.value } });
 };
 // Cette fonction permet d'ajouter un query params à la "route" actuelle.
 
 onMounted(() => {
-  if(route.query.make){
+  if (route.query.make) {
     make.value = route.query.make;
   };
 });
@@ -42,11 +42,11 @@ Cette fonction permet de modifier la valeur de l'instance make
 qui est la balise select du composant lorsqu'une propriété réactive change.
 */
 
-watch(make,() => {
-  if(make.value){
-    if(make.value === "Tous"){
+watch(make, () => {
+  if (make.value) {
+    if (make.value === "Tous") {
       cars.value = carsData;
-    }else{
+    } else {
       cars.value = carsData.filter(c => c.make === make.value);
     };
   }
@@ -59,21 +59,21 @@ watch(make,() => {
     <h1>Nos Voitures</h1>
     <!-- @ est équivalent à v-on: , la syntaxe plus courte donc à privilégier. -->
     <!--
-      Le v-model sert à deux choses :
-      - l'affectation d'une valeur dans la balise select.
-      - une communication bi-directionnel entre le select et la variable JS :
-        ainsi si la valeur du select change, la variable change également.
-    -->
+        Le v-model sert à deux choses :
+        - l'affectation d'une valeur dans la balise select.
+        - une communication bi-directionnel entre le select et la variable JS :
+          ainsi si la valeur du select change, la variable change également.
+      -->
     <select @change="handleChange" v-model="make">
       <option value="Tous">Tous</option>
       <option v-for="make in makes" :key="make">{{ make }}</option>
       <!-- : permet au paramètre de la balise d'avoir une variable JS comme valeur. -->
       <!--
-        L'attribut key est principalement utilisé comme indice pour l'algorithme DOM virtuel de Vue
-        afin d'identifier les vnodes lors de la comparaison de la nouvelle liste de nœuds avec l'ancienne liste.
-        Ainsi on évite de recharger les éléments déjà présents dans le composant quand on ajoute un nouvel élément.
-        Par ailleurs, cela peut également substituer le paramètre value de la balise.
-      -->
+          L'attribut key est principalement utilisé comme indice pour l'algorithme DOM virtuel de Vue
+          afin d'identifier les vnodes lors de la comparaison de la nouvelle liste de nœuds avec l'ancienne liste.
+          Ainsi on évite de recharger les éléments déjà présents dans le composant quand on ajoute un nouvel élément.
+          Par ailleurs, cela peut également substituer le paramètre value de la balise.
+        -->
     </select>
     <div class="cards">
       <!--RouterLink :to="`/car/${car.id}`" v-for="car in cars" :key="car.id" class="card"-->
