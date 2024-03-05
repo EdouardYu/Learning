@@ -1,0 +1,32 @@
+{
+  "name": "node-pokemon-api",
+  "version": "1.0.0",
+  "description": "Projet API Rest pour apprendre à gérer des pokémons",
+  "main": "app.js",
+  "scripts": {
+    "start": "SET NODE_ENV=production & node app.js",
+    "dev": "SET NODE_ENV=development & nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdouardYu/Learning.git"
+  },
+  "author": "Edouard Yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdouardYu/Learning/issues"
+  },
+  "homepage": "https://github.com/EdouardYu/Learning#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^6.7.1",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
